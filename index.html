@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>String Converter</h1>
+<input type="text" id="inputString" placeholder="input string">
+
+<p>Select the case</p>
+
+  <input type="radio" name="caseType" id="case" onclick="lowerCaseFunction()">LowerCase<br>
+    <input type="radio" name="caseType" id="case" onclick="upperCaseFunction()">UpperCase<br>
+    <input type="radio" name="caseType" id="case" onclick="pascalCaseFunction()">PascalCase<br>
+    <input type="radio" name="caseType" id="case" onclick="SnakeCaseFunction()">SnakeCase<br>
+    <input type="radio" name="caseType" id="case" onclick="upperCasewithsnakeCaseFunction()">UpperCase with SnakeCase<br>
+    <input type="radio" name="caseType" id="case" onclick="KebabCaseFunction()">KebabCase<br>
+    <input type="radio" name="caseType" id="case" onclick="CamelCaseFunction()">CamelCase<br>
+
+<p>Output String is :</p>
+<br>
+<p id="outputString"></p>
+
+<script>
+function lowerCaseFunction() {
+var str = document.getElementById("inputString").value;
+     var res = str.toLowerCase();
+   document.getElementById("outputString").innerHTML = res;
+
+}
+function upperCaseFunction() {
+var str = document.getElementById("inputString").value;
+     var res = str.toUpperCase();
+   document.getElementById("outputString").innerHTML = res;
+
+}
+</script>
+
+</body>
+</html>
