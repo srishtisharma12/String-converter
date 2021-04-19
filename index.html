@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html>
+  <title>String Converter</title>
 <body>
 <h1>String Converter</h1>
 <input type="text" id="inputString" placeholder="input string">
@@ -9,11 +10,11 @@
 
   <input type="radio" name="caseType" id="case" onclick="lowerCaseFunction()">LowerCase<br>
     <input type="radio" name="caseType" id="case" onclick="upperCaseFunction()">UpperCase<br>
-    <input type="radio" name="caseType" id="case" onclick="pascalCaseFunction()">PascalCase<br>
-    <input type="radio" name="caseType" id="case" onclick="SnakeCaseFunction()">SnakeCase<br>
-    <input type="radio" name="caseType" id="case" onclick="upperCasewithsnakeCaseFunction()">UpperCase with SnakeCase<br>
-    <input type="radio" name="caseType" id="case" onclick="KebabCaseFunction()">KebabCase<br>
-    <input type="radio" name="caseType" id="case" onclick="CamelCaseFunction()">CamelCase<br>
+        <input type="radio" name="caseType" id="case" onclick="snake_func()">SnakeCase<br>
+            <input type="radio" name="caseType" id="case" onclick="kebab_func()">KebabCase<br>
+                <input type="radio" name="caseType" id="case" onclick="camel_func()">CamelCase<br>
+
+
 
 <p>Output String is :</p>
 <br>
@@ -32,7 +33,44 @@ var str = document.getElementById("inputString").value;
    document.getElementById("outputString").innerHTML = res;
 
 }
+function snake_func(){
+const strr = document.getElementById("inputString").value;
+
+const toSnakeCase = (strr = '') => {
+   const strArr = strr.split(' ');
+   const snakeArr = strArr.reduce((acc, val) => {
+      return acc.concat(val.toLowerCase());
+   }, []);
+
+   return snakeArr.join('_');
+};
+document.getElementById("outputString").innerHTML = toSnakeCase(strr);
+}
+function camel_func()
+{
+var str = document.getElementById("inputString").value;
+
+function camelize(str) {
+   return str.split(' ')
+      .map(a => a.trim())
+      .map(a => a[0].toUpperCase() + a.substring(1))
+      .join("")
+}
+document.getElementById("outputString").innerHTML = camelize(str);
+ } 
+ 
+function kebab_func(){
+ var str = document.getElementById("inputString").value; 
+ const toKebabCase = str =>
+  str &&
+  str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map(x => x.toLowerCase())
+    .join('-');
+document.getElementById("outputString").innerHTML = toKebabCase(str);
+}
 </script>
 
 </body>
 </html>
+
